@@ -12,7 +12,6 @@ function gettingMovies(query, template) {
             language: 'it-IT'
         },
         success: (response) => {
-            console.log(response.results)
             response.results.forEach(movie => {
                 var context = {
                     title: movie.title,
@@ -21,7 +20,7 @@ function gettingMovies(query, template) {
                     vote: movie.vote_average
                 };
 
-                $('.main-content').append(template(context));
+                $('.main-content-list').append(template(context));
             });
         },
         error: () => console.log('API error')
@@ -34,8 +33,11 @@ $(document).ready(function () {
     var template = Handlebars.compile(source);
     
     $('#search-btn').click(() => {
-        console.log('btn pressed')
-        console.log($('#search-input').val())
-        gettingMovies($('#search-input').val(), template)
+        var userInput = $('#search-input').val();
+        if (userInput.trim()) {
+            $('.main-content-list').children().remove();
+            gettingMovies(userInput, template);
+            $('#search-input').val('');
+        }
     })
 });

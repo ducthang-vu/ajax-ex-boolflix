@@ -9,13 +9,18 @@
 <body>
     
     <section class="search-section">
-        <h4>Search a movie here:</h4>
-        <input id="search-input" type="text">
-        <button id="search-btn">Cerca</button>
+        <div class="container">
+            <h4>Search a movie here:</h4>
+            <input id="search-input" type="text">
+            <button id="search-btn">Cerca</button>
+        </div>
     </section>
 
     <section class="main-content">
-        <h4>Results:</h4>
+        <div class="container">
+            <h4>Results:</h4>
+            <div class="main-content-list"></div>
+        </div>
     </section>
 
     <script id="template-movie-card" type="text/x-handlebars-template">
