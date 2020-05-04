@@ -31,7 +31,7 @@ function gettingMovies(query, template) {
 
 function searchingMovies(userInput, template) {
     if (userInput.trim()) {
-        $('.main-content-list').children().remove();
+        $('.main-content-list').empty();
         gettingMovies(userInput, template);
         $('#search-input').val('');
     } else alert('You must enter a valid text');
