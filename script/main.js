@@ -13,16 +13,18 @@ function gettingMovies(query, template) {
             language: 'it-IT'
         },
         success: (response) => {
-            response.results.forEach(movie => {
-                var context = {
-                    title: movie.title,
-                    title_or: movie.original_title,
-                    language: movie.original_language,
-                    vote: movie.vote_average
-                };
+            if (response.results.length) {
+                response.results.forEach(movie => {
+                    var context = {
+                        title: movie.title,
+                        title_or: movie.original_title,
+                        language: movie.original_language,
+                        vote: movie.vote_average
+                    };
 
                 $('.main-content-list').append(template(context));
-            });
+                });
+            } else alert('No movie has been found')
         },
         error: () => console.log('API error')
     });
