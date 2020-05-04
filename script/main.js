@@ -29,9 +29,11 @@ function gettingMovies(query, template) {
 
 
 $(document).ready(function () {
+    // Init Handlebars
     var source = $('#template-movie-card').html();
     var template = Handlebars.compile(source);
-    
+
+    // Activating search-button
     $('#search-btn').click(() => {
         var userInput = $('#search-input').val();
         if (userInput.trim()) {
