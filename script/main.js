@@ -29,13 +29,12 @@ function gettingMovies(query, template) {
 }
 
 
-function searchingMovies(template) {
-    var userInput = $('#search-input').val();
+function searchingMovies(userInput, template) {
     if (userInput.trim()) {
         $('.main-content-list').children().remove();
         gettingMovies(userInput, template);
         $('#search-input').val('');
-    }
+    } else alert('You must enter a valid text');
 }
 
 
@@ -46,9 +45,9 @@ $(document).ready(function () {
     var template = Handlebars.compile(source);
 
     // Activating search-button and "enter" key
-    $('#search-btn').click(() => searchingMovies(template));
+    $('#search-btn').click(() => searchingMovies($('#search-input').val(), template));
     $(document).keyup(function(e) { 
-        if (e.which == 13 || e.keyCode == 13) searchingMovies(template);
+        if (e.which == 13 || e.keyCode == 13) searchingMovies($('#search-input').val(), template);
         }
     );
 });
