@@ -31,11 +31,11 @@ function gettingMovies(query, template) {
 
 function searchingMovies(template) {
     var userInput = $('#search-input').val();
-        if (userInput.trim()) {
-            $('.main-content-list').children().remove();
-            gettingMovies(userInput, template);
-            $('#search-input').val('');
-        }
+    if (userInput.trim()) {
+        $('.main-content-list').children().remove();
+        gettingMovies(userInput, template);
+        $('#search-input').val('');
+    }
 }
 
 
