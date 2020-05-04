@@ -2,6 +2,7 @@ console.log('main.js is working');
 console.log($);
 
 
+/* FUNCTIONS */
 function gettingMovies(query, template) {
     $.ajax({
         url: "https://api.themoviedb.org/3/search/movie",
@@ -28,18 +29,26 @@ function gettingMovies(query, template) {
 }
 
 
-$(document).ready(function () {
-    // Init Handlebars
-    var source = $('#template-movie-card').html();
-    var template = Handlebars.compile(source);
-
-    // Activating search-button
-    $('#search-btn').click(() => {
-        var userInput = $('#search-input').val();
+function searchingMovies(template) {
+    var userInput = $('#search-input').val();
         if (userInput.trim()) {
             $('.main-content-list').children().remove();
             gettingMovies(userInput, template);
             $('#search-input').val('');
         }
-    })
+}
+
+
+/* MAIN */
+$(document).ready(function () {
+    // Init Handlebars
+    var source = $('#template-movie-card').html();
+    var template = Handlebars.compile(source);
+
+    // Activating search-button and "enter" key
+    $('#search-btn').click(() => searchingMovies(template));
+    $(document).keyup(function(e) { 
+        if (e.which == 13 || e.keyCode == 13) searchingMovies(template);
+        }
+    );
 });
