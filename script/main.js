@@ -11,18 +11,14 @@ function addingStars(raw_score) {
 }
 
 
-function gettingFlag(iso_code) {
-    // A function accepting a iso 639-1 code as a string, and returning the appropriate flag, if stored in the img folder, else returns false.
+function get_html_lang(iso_code) {
+    // A function accepting a iso 639-1 code as a string, and returning the appropriate flag, if stored in the img folder, else returns the string.
     var dict = {
         en: 'en.svg',
         it: 'it.svg'
     };
-    return iso_code in dict ? dict[iso_code] : false;
-}
 
-
-function get_html_lang(iso_code) {
-    var flag =  gettingFlag(iso_code);
+    var flag = dict[iso_code];
     return flag ? '<img src="img/' + flag + '" alt="flag">' : iso_code;
 }
 
