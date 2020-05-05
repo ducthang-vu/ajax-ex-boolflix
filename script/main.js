@@ -3,6 +3,10 @@ console.log($);
 
 
 /* FUNCTIONS */
+function addingStars(n) {
+    
+}
+
 function gettingMovies(query, template) {
     $.ajax({
         url: "https://api.themoviedb.org/3/search/movie",
