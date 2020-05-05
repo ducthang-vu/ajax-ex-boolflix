@@ -11,6 +11,16 @@ function addingStars(raw_score) {
 }
 
 
+function gettingFlag(iso_code) {
+    // A function accepting a iso 639-1 code as a string, and returning the appropriate flag, as stored in the img folder, else returni the string.
+    var dict = {
+        en: 'en.svg',
+        it: 'it.svg'
+    }
+    return iso_code in dict ? dict[iso_code] : iso_code
+}
+
+
 function gettingMovies(query, template) {
     $.ajax({
         url: "https://api.themoviedb.org/3/search/movie",
