@@ -18,25 +18,26 @@
 
     <section class="main-content">
         <div class="container">
-            <h4>Results:</h4>
-            <div class="main-content-list"></div>
+            <h3>Results:</h3>
+            <div class="result-wrapper flex">
+                <div class="result-display">
+                    <h4>Search results:</h4>
+                        <span id="result-numbers">n/a</span>
+                </div>
+                <div class="main-content-list"></div>
+            </div>
         </div>
     </section>
 
-    <!-- TEST AREA -->
-    <section class="test-area">
-        <h4>test-area</h4>
-        <i class="far fa-star"></i>
-        <i class="fas fa-star"></i>
-    </section>
 
+    <!-- TEMPLATE -->
     <script id="template-movie-card" type="text/x-handlebars-template">
         <ul class="movie-card">
             <li><img src="" alt="immagine"></li>
             <li>Titolo: {{ title }}</li>
             <li>Titolo originale: {{ title_or }}</li>
             <li class="lang">Lingua: {{{ language }}}</li>
-            <li>Voto: {{{ vote }}}</li>
+            <li class="vote">Voto: {{{ vote }}}</li>
             <li>Tipo: {{ product }} </li>
         </ul>
     </script>

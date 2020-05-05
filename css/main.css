@@ -8,24 +8,39 @@ body {
     padding: 30px;
 }
 
+/* UTILITIES */
 .container {
     padding: 10px;
     width: 90%;
     max-width: 1100px;
 }
 
-.fas.fa-star {
-    color: gold;
+.flex {
+    display: flex;
 }
 
-.movie-card {
-    margin: 30px 0; 
+
+/* APP */
+.result-display {
+    flex-basis: 30%;
 }
 
-    .movie-card .lang > img{
-        height: 20px;
-        width: 20px;
+.main-content-list {
+    
+}
+
+    .movie-card {
+        margin: 30px 0; 
     }
+
+        .movie-card .lang > img{
+            height: 20px;
+            width: 20px;
+        }
+
+        .movie-card .vote .fas.fa-star {
+            color: gold;
+        }
 
 /* DEBUG */
 .test-area {

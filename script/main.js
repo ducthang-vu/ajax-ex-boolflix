@@ -34,7 +34,6 @@ function printCards(template, product, array_of_objects) {
         };
 
         $('.main-content-list').append(template(context));
-        $('#search-input').val('');
     })
 }
 
@@ -51,16 +50,22 @@ function gettingMovies(query, template) {
             query: query,
             language: 'it-IT'
         },
-        success: (response) => printCards(template, link, response.results),
+        success: (response) => {
+            $('#result-numbers').append(link + ': ' + response.results.length + ' found<br>');
+            printCards(template, link, response.results);
+            },
         error: () => console.log('API error')
         });
     })
+
+    $('#search-input').val('');
 }
 
 
 function searchingMovies(userInput, template) {
     if (userInput.trim()) {
         $('.main-content-list').empty();
+        $('#result-numbers').empty();
         gettingMovies(userInput, template);
     } else {
         alert('You must enter a valid text');
