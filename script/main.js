@@ -3,9 +3,13 @@ console.log($);
 
 
 /* FUNCTIONS */
-function addingStars(n) {
-    
+function addingStars(raw_score) {
+    var score = Math.ceil(raw_score / 2) 
+    var fullStar = '<i class="fas fa-star"></i>'
+    var emptyStar = '<i class="far fa-star"></i>'
+    return fullStar.repeat(score) + emptyStar.repeat(5-score)
 }
+
 
 function gettingMovies(query, template) {
     $.ajax({
@@ -23,7 +27,7 @@ function gettingMovies(query, template) {
                         title: movie.title,
                         title_or: movie.original_title,
                         language: movie.original_language,
-                        vote: movie.vote_average
+                        vote: addingStars(movie.vote_average)
                     };
 
                 $('.main-content-list').append(template(context));
@@ -31,7 +35,7 @@ function gettingMovies(query, template) {
                 });
             } else {
                 alert('No movie has been found');
-                $('#search-input').select();
+                $('search-input').select();
             }
         },
         error: () => console.log('API error')
