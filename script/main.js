@@ -12,12 +12,19 @@ function addingStars(raw_score) {
 
 
 function gettingFlag(iso_code) {
-    // A function accepting a iso 639-1 code as a string, and returning the appropriate flag, as stored in the img folder, else returni the string.
+    // A function accepting a iso 639-1 code as a string, and returning the appropriate flag, if stored in the img folder, else returns false.
     var dict = {
         en: 'en.svg',
         it: 'it.svg'
     }
-    return iso_code in dict ? dict[iso_code] : iso_code
+    return iso_code in dict ? dict[iso_code] : false
+}
+
+
+function get_html_lang(iso_code) {
+    var flag =  gettingFlag(iso_code)
+    console.log(flag)
+    return flag ? '<img src="img/' + flag + '" alt="flag">' : iso_code
 }
 
 
@@ -36,7 +43,7 @@ function gettingMovies(query, template) {
                     var context = {
                         title: movie.title,
                         title_or: movie.original_title,
-                        language: movie.original_language,
+                        language: get_html_lang(movie.original_language),
                         vote: addingStars(movie.vote_average)
                     };
 
