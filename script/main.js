@@ -39,7 +39,7 @@ function printCards(template, product, array_of_objects) {
 
 
 function gettingMovies(query, template) {
-    var links = ['movie', 'tv']
+    var links = ['movie', 'tv'];
 
     links.forEach(link => {
         $.ajax({
