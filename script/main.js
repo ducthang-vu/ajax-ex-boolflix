@@ -34,7 +34,7 @@ function printCards(template, product, array_of_objects) {
         };
 
         $('.main-content-list').append(template(context));
-    })
+    });
 }
 
 
