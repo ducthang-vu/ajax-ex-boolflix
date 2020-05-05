@@ -27,13 +27,14 @@ function get_html_lang(iso_code) {
 }
 
 
-function printCards(array_of_objects, template) {
+function printCards(template, product, array_of_objects) {
     array_of_objects.forEach(object => {
         var context = {
             title: object.title || object.name,
             title_or: object.original_title || object.original_name,
             language: get_html_lang(object.original_language),
-            vote: addingStars(object.vote_average)
+            vote: addingStars(object.vote_average),
+            product: product
         };
 
         $('.main-content-list').append(template(context));
@@ -43,25 +44,21 @@ function printCards(array_of_objects, template) {
 
 
 function gettingMovies(query, template) {
-    //var links = ['movie', 'tv']
+    var links = ['movie', 'tv']
 
-    $.ajax({
-        url: "https://api.themoviedb.org/3/search/movie",
+    links.forEach(link => {
+        $.ajax({
+        url: "https://api.themoviedb.org/3/search/" + link,
         method: 'GET',
         data: {
             api_key: '1e44d8a8c31825e9df1bd0cab47e61e5',
             query: query,
             language: 'it-IT'
         },
-        success: (response) => {
-            if (response.results.length) printCards(response.results, template);
-            else {
-                alert('No movie has been found');
-                $('search-input').select();
-            }
-        },
+        success: (response) => printCards(template, link, response.results),
         error: () => console.log('API error')
-    });
+        });
+    })
 }
 
 
