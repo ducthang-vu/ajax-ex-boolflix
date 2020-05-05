@@ -4,10 +4,10 @@ console.log($);
 
 /* FUNCTIONS */
 function addingStars(raw_score) {
-    var score = Math.ceil(raw_score / 2) 
-    var fullStar = '<i class="fas fa-star"></i>'
-    var emptyStar = '<i class="far fa-star"></i>'
-    return fullStar.repeat(score) + emptyStar.repeat(5-score)
+    var score = Math.ceil(raw_score / 2);
+    var fullStar = '<i class="fas fa-star"></i>';
+    var emptyStar = '<i class="far fa-star"></i>';
+    return fullStar.repeat(score) + emptyStar.repeat(5-score);
 }
 
 
@@ -16,19 +16,35 @@ function gettingFlag(iso_code) {
     var dict = {
         en: 'en.svg',
         it: 'it.svg'
-    }
-    return iso_code in dict ? dict[iso_code] : false
+    };
+    return iso_code in dict ? dict[iso_code] : false;
 }
 
 
 function get_html_lang(iso_code) {
-    var flag =  gettingFlag(iso_code)
-    console.log(flag)
-    return flag ? '<img src="img/' + flag + '" alt="flag">' : iso_code
+    var flag =  gettingFlag(iso_code);
+    return flag ? '<img src="img/' + flag + '" alt="flag">' : iso_code;
+}
+
+
+function printCards(array_of_objects, template) {
+    array_of_objects.forEach(object => {
+        var context = {
+            title: object.title || object.name,
+            title_or: object.original_title || object.original_name,
+            language: get_html_lang(object.original_language),
+            vote: addingStars(object.vote_average)
+        };
+
+        $('.main-content-list').append(template(context));
+        $('#search-input').val('');
+    })
 }
 
 
 function gettingMovies(query, template) {
+    //var links = ['movie', 'tv']
+
     $.ajax({
         url: "https://api.themoviedb.org/3/search/movie",
         method: 'GET',
@@ -38,19 +54,8 @@ function gettingMovies(query, template) {
             language: 'it-IT'
         },
         success: (response) => {
-            if (response.results.length) {
-                response.results.forEach(movie => {
-                    var context = {
-                        title: movie.title,
-                        title_or: movie.original_title,
-                        language: get_html_lang(movie.original_language),
-                        vote: addingStars(movie.vote_average)
-                    };
-
-                $('.main-content-list').append(template(context));
-                $('#search-input').val('');
-                });
-            } else {
+            if (response.results.length) printCards(response.results, template);
+            else {
                 alert('No movie has been found');
                 $('search-input').select();
             }
