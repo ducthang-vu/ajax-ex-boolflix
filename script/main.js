@@ -24,7 +24,11 @@ function gettingMovies(query, template) {
 
                 $('.main-content-list').append(template(context));
                 });
-            } else alert('No movie has been found')
+            } else {
+                alert('No movie has been found');
+                $('#search-input').val('');
+                $('#search-input').focus();
+            }
         },
         error: () => console.log('API error')
     });
@@ -36,7 +40,11 @@ function searchingMovies(userInput, template) {
         $('.main-content-list').empty();
         gettingMovies(userInput, template);
         $('#search-input').val('');
-    } else alert('You must enter a valid text');
+    } else {
+        alert('You must enter a valid text');
+        $('#search-input').val('');
+        $('#search-input').focus();
+    }
 }
 
 
