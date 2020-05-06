@@ -46,8 +46,16 @@ function printCards(template, product, array_of_objects) {
 }
 
 
+function ending_search() {
+    console.log('fired')
+    console.log($('.main-content-list').html())
+    if (!$('.main-content-list').html())  $('.main-content-list').addClass('failed')
+}
+
+
 function gettingMovies(query, template) {
     var links = ['movie', 'tv'];
+    var call_counter = 0;
 
     links.forEach(link => {
         $.ajax({
@@ -58,24 +66,24 @@ function gettingMovies(query, template) {
             query: query,
             language: 'it-IT'
         },
-        success: (response) => printCards(template, link, response.results),
+        success: (response) => {
+            printCards(template, link, response.results);
+            if (++call_counter === link.length) ending_search();
+            },
         error: () => console.log('API error')
         });
     })
-
-    $('#search-input').val('');
 }
 
 
 function searchingMovies(userInput, template) {
+    $('.main-content-list').removeClass('failed');
     if (userInput.trim()) {
         $('.main-content-list').empty();
         gettingMovies(userInput, template);
-    } else {
-        alert('You must enter a valid text');
-        $('#search-input').val('');
-        $('#search-input').focus();
-    }
+    } else $('#search-input').focus();
+
+    $('#search-input').val('');
 }
 
 
