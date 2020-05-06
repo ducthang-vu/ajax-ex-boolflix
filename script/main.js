@@ -1,7 +1,3 @@
-console.log('main.js is working');
-console.log($);
-
-
 /* FUNCTIONS */
 function get_html_stars(raw_score) {
     var score = Math.ceil(raw_score / 2);
@@ -17,7 +13,6 @@ function get_html_lang(iso_code) {
         en: 'en.svg',
         it: 'it.svg'
     };
-
     var flag = dict[iso_code];
     return flag ? '<img src="img/' + flag + '" alt="flag">' : iso_code;
 }
@@ -48,7 +43,7 @@ function printCards(template, product, array_of_objects) {
 
 function ending_search() {
     if (!$('.main-content-list').html()) {
-        $('.main-content-list').addClass('failed');
+        $('.main-content-list').addClass('failed');     //failed search notified to user
         $('#search-input').focus();
     } 
     $('#search-input').val('');
@@ -56,10 +51,13 @@ function ending_search() {
 
 
 function gettingMovies(query, template) {
-    var links = ['movie', 'tv'];
+    var links_labels = {
+        movie: 'Film',
+        tv: 'Serie TV'
+    };
     var call_counter = 0;
 
-    links.forEach(link => {
+    for (const link in links_labels) {
         $.ajax({
         url: "https://api.themoviedb.org/3/search/" + link,
         method: 'GET',
@@ -69,18 +67,17 @@ function gettingMovies(query, template) {
             language: 'it-IT'
         },
         success: (response) => {
-            printCards(template, link, response.results);
+            printCards(template, links_labels[link], response.results);
             if (++call_counter === link.length) ending_search();
             },
         error: () => console.log('API error')
         });
-    })
+    }
 }
 
 
 function startSearching(userInput, template) {
     $('.main-content-list').empty().removeClass('failed');  // reset main-content-list element
-
     userInput.trim() ? gettingMovies(userInput, template) : ending_search();
 }
 
