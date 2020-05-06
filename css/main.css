@@ -67,6 +67,7 @@ li {
         background-color: red;
         color: #fff;
         outline: 0;
+        cursor: pointer;
     }
 
 /* MAIN-CONCENT-LIST */
