@@ -112,31 +112,31 @@ li {
             width: 100%;
         }
 
-            .movie-title-box:not(.active),
+            .card-title-box:not(.active),
             .card-details {
                 opacity: 0;
                 background-color: rgba(0, 0, 0, 0.8);
                 transition: opacity 1.5s;
             }
             
-            .card:hover .movie-title-box,
+            .card:hover .card-title-box,
             .card:hover .card-details {
                 opacity: 1;
             }
 
-            .movie-title-box {
+            .card-title-box {
                 height: 30%;
                 padding: 10px 30px;
                 justify-content: center;
                 align-items: center;
             }
 
-            .movie-title-box.active,
-            .movie-title-box.active + .card-details {
+            .card-title-box.active,
+            .card-title-box.active + .card-details {
                 background-color: #000;
             }
 
-            .movie-title-box.active::after {
+            .card-title-box.active::after {
                 position: absolute;
                 content: '';
                 width: 80%;
@@ -149,7 +149,7 @@ li {
                 z-index: -1;
             }
 
-                .movie-title {
+                .card-title {
                     font-size: 30px;
                     font-weight: 800;
                 }
