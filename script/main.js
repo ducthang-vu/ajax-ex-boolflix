@@ -37,7 +37,8 @@ function printCards(template, product, array_of_objects) {
             language: get_html_lang(object.original_language),
             vote: get_html_stars(object.vote_average),
             product: product,
-            overview: format_overview(object.overview)
+            overview: format_overview(object.overview),
+            active: object.poster_path ? null : ' active '
         };
 
         $('.main-content-list').append(template(context));

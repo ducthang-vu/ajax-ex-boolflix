@@ -99,7 +99,7 @@ li {
             width: 100%;
         }
 
-            .movie-title-box,
+            .movie-title-box:not(.active),
             .card-details {
                 visibility: hidden;
                 background-color: rgba(0, 0, 0, 0.8);
