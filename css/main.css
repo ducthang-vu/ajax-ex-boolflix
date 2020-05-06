@@ -86,7 +86,7 @@ li {
     font-size: 200%;
 }
 
-    .movie-card {
+    .card {
         margin: 10px;
         border: 2px solid #fff;
         font-size: 0;
@@ -119,8 +119,8 @@ li {
                 transition: opacity 1.5s;
             }
             
-            .movie-card:hover .movie-title-box,
-            .movie-card:hover .card-details {
+            .card:hover .movie-title-box,
+            .card:hover .card-details {
                 opacity: 1;
             }
 
