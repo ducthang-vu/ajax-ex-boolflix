@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Boolflix</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
 </head>
-<body>
-    <header class="main-header black color-wh">
+<body class="black color-wh">
+    <header class="main-header">
         <div class="container flex central">
-            <h1>
-                BOOLFIX
-            </h1>
+            <img src="img/logo.png" alt="">
             
             <div class="search-section">
                 <input id="search-input" type="text">
@@ -23,13 +22,13 @@
 
     <main>
         <div class="container flex central">
-            <ul class="main-content-list">
+            <ul class="main-content-list flex">
                 <li class="movie-card relative">
                     <img class="card-img" src="https://image.tmdb.org/t/p/w342/fVqKwpvobwWy0P1UImZWIDuw4RI.jpg" alt="immagine">
                     
                     <div class="card-details-wrapper flex absolute">
                         <ul class="card-details">
-                            <li>Titolo: Guerre stellari</li>
+                            <li class="movie-title text-center">Guerre stellari</li>
                             <li>Titolo originale: Star Wars</li>
                             <li class="lang">Lingua: <img src="img/en.svg" alt="flag"></li>
                             <li class="vote">Voto: <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i></li>
@@ -45,17 +44,18 @@
     <!-- TEMPLATE -->
     <script id="template-movie-card" type="text/x-handlebars-template">
         <li class="movie-card relative">
+            <img class="card-img" src="https://image.tmdb.org/t/p/w342{{ poster_link}}" alt="immagine">
 
-            <img class="card-img absolute" src="https://image.tmdb.org/t/p/w342{{ poster_link}}" alt="immagine">
-
-            <ul class="card-details">
-                <li>Titolo: {{ title }}</li>
-                <li>Titolo originale: {{ title_or }}</li>
-                <li class="lang">Lingua: {{{ language }}}</li>
-                <li class="vote">Voto: {{{ vote }}}</li>
-                <li>Tipo: {{ product }} </li>
-            </ul>
-
+            <div class="card-details-wrapper flex absolute">
+                <ul class="card-details">
+                    <li class="movie-title text-center">{{ title }}</li>
+                    <li>Titolo originale: {{ title_or }}</li>
+                    <li class="lang">Lingua: {{{ language }}}</li>
+                    <li class="vote">Voto: {{{ vote }}}</li>
+                    <li>Tipo: {{ product }} </li>
+                    <li>Trama: {{ overview }}</li>
+                </ul>
+            </div>
         </li>
     </script>
 
