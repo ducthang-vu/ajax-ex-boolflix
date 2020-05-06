@@ -3,7 +3,7 @@ console.log($);
 
 
 /* FUNCTIONS */
-function addingStars(raw_score) {
+function get_html_stars(raw_score) {
     var score = Math.ceil(raw_score / 2);
     var fullStar = '<i class="fas fa-star"></i>';
     var emptyStar = '<i class="far fa-star"></i>';
@@ -26,10 +26,11 @@ function get_html_lang(iso_code) {
 function printCards(template, product, array_of_objects) {
     array_of_objects.forEach(object => {
         var context = {
+            poster_link: object.poster_path,
             title: object.title || object.name,
             title_or: object.original_title || object.original_name,
             language: get_html_lang(object.original_language),
-            vote: addingStars(object.vote_average),
+            vote: get_html_stars(object.vote_average),
             product: product
         };
 
