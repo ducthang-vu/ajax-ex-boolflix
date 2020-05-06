@@ -118,7 +118,6 @@ li {
                 background-color: rgba(0, 0, 0, 0.8);
                 transition: opacity 1.5s;
             }
-
             
             .movie-card:hover .movie-title-box,
             .movie-card:hover .card-details {
