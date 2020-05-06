@@ -24,7 +24,7 @@ function get_html_lang(iso_code) {
 
 
 function format_overview(overview) {
-    return overview ? overview.substring(0, 100) + '...' : 'Trama non disponibile'
+    return overview ? overview.substring(0, 100) + '...' : 'Trama non disponibile';
 }
 
 
@@ -81,7 +81,7 @@ function gettingMovies(query, template) {
 function startSearching(userInput, template) {
     $('.main-content-list').empty().removeClass('failed');  // reset main-content-list element
 
-    userInput.trim() ? gettingMovies(userInput, template) : ending_search()
+    userInput.trim() ? gettingMovies(userInput, template) : ending_search();
 }
 
 
@@ -95,6 +95,5 @@ $(document).ready(function () {
     $('#search-btn').click(() => startSearching($('#search-input').val(), template));
     $(document).keyup(function(e) { 
         if (e.which == 13 || e.keyCode == 13) startSearching($('#search-input').val(), template);
-        }
-    );
+    });
 });
