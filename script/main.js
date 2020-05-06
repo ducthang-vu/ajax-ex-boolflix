@@ -23,6 +23,11 @@ function get_html_lang(iso_code) {
 }
 
 
+function format_overview(overview) {
+    return overview ? overview.substring(0, 100) + '...' : 'Trama non disponibile'
+}
+
+
 function printCards(template, product, array_of_objects) {
     array_of_objects.forEach(object => {
         var context = {
@@ -32,7 +37,7 @@ function printCards(template, product, array_of_objects) {
             language: get_html_lang(object.original_language),
             vote: get_html_stars(object.vote_average),
             product: product,
-            overview: object.overview.substring(0, 80) + '...'
+            overview: format_overview(object.overview)
         };
 
         $('.main-content-list').append(template(context));

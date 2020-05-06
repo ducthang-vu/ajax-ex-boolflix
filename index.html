@@ -23,19 +23,7 @@
     <main>
         <div class="container flex central">
             <ul class="main-content-list flex">
-                <li class="movie-card relative">
-                    <img class="card-img" src="https://image.tmdb.org/t/p/w342/fVqKwpvobwWy0P1UImZWIDuw4RI.jpg" alt="immagine">
-                    
-                    <div class="card-details-wrapper flex absolute">
-                        <ul class="card-details">
-                            <li class="movie-title text-center">Guerre stellari</li>
-                            <li>Titolo originale: Star Wars</li>
-                            <li class="lang">Lingua: <img src="img/en.svg" alt="flag"></li>
-                            <li class="vote">Voto: <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i></li>
-                            <li>Tipo: movie </li>
-                        </ul>
-                    </div>
-                </li>
+                
             </ul>
         </div>
     </main>
@@ -44,18 +32,23 @@
     <!-- TEMPLATE -->
     <script id="template-movie-card" type="text/x-handlebars-template">
         <li class="movie-card relative">
-            <img class="card-img" src="https://image.tmdb.org/t/p/w342{{ poster_link}}" alt="immagine">
+            <div class="card-front">
+                <img class="card-img" src="https://image.tmdb.org/t/p/w342{{ poster_link}}" alt="immagine">
+            </div>
 
-            <div class="card-details-wrapper flex absolute">
+            <div class="card-details-wrapper absolute">
+                <div class="movie-title-box flex text-center">
+                    <h2 class="movie-title">{{ title }}</h2>
+                </div>
+                
                 <ul class="card-details">
-                    <li class="movie-title text-center">{{ title }}</li>
                     <li>Titolo originale: {{ title_or }}</li>
                     <li class="lang">Lingua: {{{ language }}}</li>
                     <li class="vote">Voto: {{{ vote }}}</li>
                     <li>Tipo: {{ product }} </li>
                     <li>Trama: {{ overview }}</li>
                 </ul>
-            </div>
+        </div>
         </li>
     </script>
 

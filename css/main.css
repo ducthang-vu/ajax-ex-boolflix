@@ -57,6 +57,17 @@ li {
     align-items: center;
 }
 
+    #search-input {
+        padding: 5px;
+    }
+
+    #search-btn {
+        padding: 5px;
+        border-radius: 5px;
+        background-color: red;
+        color: #fff;
+        outline: 0;
+    }
 
 /* MAIN-CONCENT-LIST */
 .main-content-list {
@@ -69,31 +80,51 @@ li {
         cursor: pointer;
     }
 
+        .card-front {
+            width: 342px;
+            height: 513px;
+            overflow: hidden;
+        }
+
         .card-details-wrapper {
-            visibility: hidden;
             top: 0;
             left: 0;
             height: 100%;
             width: 100%;
-            padding: 20px;
-            justify-content: center;
-            align-items: center;
-            background-color: rgba(0, 0, 0, 0.8);
-            font-size: 20px;
         }
 
-        .movie-card:hover .card-details-wrapper {
-            visibility: visible;
-        }
+            .movie-title-box,
+            .card-details {
+                visibility: hidden;
+                background-color: rgba(0, 0, 0, 0.8);
+            }
 
-            .card-details > * {
-                margin: 10px 0;
+            
+            .movie-card:hover .movie-title-box,
+            .movie-card:hover .card-details {
+                visibility: visible;
+            }
+
+            .movie-title-box {
+                height: 30%;
+                padding: 10px 30px;
+                justify-content: center;
+                align-items: center;
             }
 
                 .movie-title {
-                    margin-bottom: 35px;
                     font-size: 30px;
                     font-weight: 800;
+                }
+
+            .card-details {
+                height: 70%;
+                padding: 10px 30px;
+                font-size: 20px;
+            }
+
+                .card-details > * {
+                    margin-bottom: 10px;
                 }
 
                 .card-details .lang > img{
