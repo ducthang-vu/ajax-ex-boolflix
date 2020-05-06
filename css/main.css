@@ -126,11 +126,11 @@ li {
             .movie-title-box.active::after {
                 position: absolute;
                 content: '';
-                width: 70%;
+                width: 80%;
                 height: 30%;
-                top: 30%;
+                top: 50%;
                 left: 50%;
-                transform: translateX(-50%);
+                transform: translate(-50%, -50%);
                 background: url('../img/no-image.jpg');
                 background-size: cover;
                 z-index: -1;
