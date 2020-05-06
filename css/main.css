@@ -118,6 +118,10 @@ li {
                 align-items: center;
             }
 
+            .movie-title-box.active {
+                background-color: #000;
+            }
+
                 .movie-title {
                     font-size: 30px;
                     font-weight: 800;
