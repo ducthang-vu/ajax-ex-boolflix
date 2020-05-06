@@ -78,7 +78,7 @@ function gettingMovies(query, template) {
 }
 
 
-function searchingMovies(userInput, template) {
+function startSearching(userInput, template) {
     $('.main-content-list').empty().removeClass('failed');  // reset main-content-list element
 
     userInput.trim() ? gettingMovies(userInput, template) : ending_search()
@@ -92,9 +92,9 @@ $(document).ready(function () {
     var template = Handlebars.compile(source);
 
     // Activating search-button and "enter" key
-    $('#search-btn').click(() => searchingMovies($('#search-input').val(), template));
+    $('#search-btn').click(() => startSearching($('#search-input').val(), template));
     $(document).keyup(function(e) { 
-        if (e.which == 13 || e.keyCode == 13) searchingMovies($('#search-input').val(), template);
+        if (e.which == 13 || e.keyCode == 13) startSearching($('#search-input').val(), template);
         }
     );
 });
