@@ -72,6 +72,7 @@ li {
 /* MAIN-CONCENT-LIST */
 .main-content-list {
     flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .main-content-list.failed::after {
