@@ -118,7 +118,8 @@ li {
                 align-items: center;
             }
 
-            .movie-title-box.active {
+            .movie-title-box.active,
+            .movie-title-box.active + .card-details {
                 background-color: #000;
             }
 
@@ -134,7 +135,6 @@ li {
                 background-size: cover;
                 z-index: -1;
             }
-
 
                 .movie-title {
                     font-size: 30px;
