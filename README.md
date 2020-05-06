@@ -44,12 +44,16 @@ Qui un esempio di chiamata per le serie tv:
 https://api.themoviedb.org/3/search/tv?api_key=e99307154c6dfb0b4750f6603256716d&language=it_IT&query=scrubs
 
 
-Consigli:
-Andate in fila, seguendo le milestone, non pensate all’interfaccia grafica fino al punto 4
-Non pensate all’interfaccia grafica fino al punto 4 (si, l’ho scritto due volte), tutto può essere risolto con una <ul> non stilizzata e con .append()
-Ricordatevi quanto imparato finora con le diverse esercitazioni:
-Affrontate sempre prima il caso base minimo, senza complicazioni (ad es. “Se il titolo originale è uguale al titolo, magari dovrei nasconderlo”, “Se faccio una ricerca che non ha nessun risultato dovrei scrivere qualcosa” sono domande da NON FARSI fino a quando non si è fatto completamente un caso base)
-Se ti viene voglia di copiare/incollare codice, NON FARLO, fai una funzione! Quei pochi minuti risparmiati renderanno il tuo codice meno leggibile ed ogni volta che dovrai intervenire su quella parte perderai molto più tempo
-Prima di andare avanti, assicurati di aver risolto quella parte nel miglior modo possibile (codice non ripetuto, minimo codice possibile, funzioni chiare e riutilizzabili, pulizia di scrittura del codice). Risparmierai tantissimo tempo risolvendo gli esercizi successivi
-Meglio risolvere una milestone in meno, ma con codice scritto bene
-4. Per avere la lista delle lingue utilizzare: https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+Milestone 3:
+In questa milestone come prima cosa  faremo un refactor delle chiamate ajax creando un’unica funzione alla quale passeremo la url, la apy key, la query, il type, ecc… In questo modo potremo chiamare la ricerca sia con il keypress su enter che con il click.
+
+Poi, aggiungiamo la copertina del film o della serie al nostro elenco. Ci viene passata dall’API solo la parte finale dell’URL, questo perché poi potremo generare da quella porzione di URL tante dimensioni diverse. Dovremo prendere quindi l’URL base delle immagini di TMDB: https://image.tmdb.org/t/p/ per poi aggiungere la dimensione che vogliamo generare (troviamo tutte le dimensioni possibili a questo link: https://www.themoviedb.org/talk/53c11d4ec3a3684cf4006400) per poi aggiungere la parte finale dell’URL passata dall’API.
+Esempio di URL che torna la copertina di Scrubs:
+https://image.tmdb.org/t/p/w342/u1z05trCA7AuSuDhi365grwdos1.jpg
+
+
+Milestone 4:
+Trasformiamo quello che abbiamo fatto fino ad ora in una vera e propria webapp, creando un layout completo simil-Netflix:
+Un header che contiene logo e search bar
+Dopo aver ricercato qualcosa nella searchbar, i risultati appaiono sotto forma di “card” in cui lo sfondo è rappresentato dall’immagine di copertina (consiglio la poster_path con w342)
+Andando con il mouse sopra una card (on hover), appaiono le informazioni aggiuntive già prese nei punti precedenti più la overview
