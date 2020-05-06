@@ -47,9 +47,11 @@ function printCards(template, product, array_of_objects) {
 
 
 function ending_search() {
-    console.log('fired')
-    console.log($('.main-content-list').html())
-    if (!$('.main-content-list').html())  $('.main-content-list').addClass('failed')
+    if (!$('.main-content-list').html()) {
+        $('.main-content-list').addClass('failed');
+        $('#search-input').focus();
+    } 
+    $('#search-input').val('');
 }
 
 
@@ -77,13 +79,9 @@ function gettingMovies(query, template) {
 
 
 function searchingMovies(userInput, template) {
-    $('.main-content-list').removeClass('failed');
-    if (userInput.trim()) {
-        $('.main-content-list').empty();
-        gettingMovies(userInput, template);
-    } else $('#search-input').focus();
+    $('.main-content-list').empty().removeClass('failed');  // reset main-content-list element
 
-    $('#search-input').val('');
+    userInput.trim() ? gettingMovies(userInput, template) : ending_search()
 }
 
 
