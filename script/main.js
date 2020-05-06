@@ -51,10 +51,7 @@ function gettingMovies(query, template) {
             query: query,
             language: 'it-IT'
         },
-        success: (response) => {
-            $('#result-numbers').append(link + ': ' + response.results.length + ' found<br>');
-            printCards(template, link, response.results);
-            },
+        success: (response) => printCards(template, link, response.results),
         error: () => console.log('API error')
         });
     })
@@ -66,7 +63,6 @@ function gettingMovies(query, template) {
 function searchingMovies(userInput, template) {
     if (userInput.trim()) {
         $('.main-content-list').empty();
-        $('#result-numbers').empty();
         gettingMovies(userInput, template);
     } else {
         alert('You must enter a valid text');

@@ -7,39 +7,54 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    
-    <section class="search-section">
-        <div class="container">
-            <h4>Cerca un film o una serie tv</h4>
-            <input id="search-input" type="text">
-            <button id="search-btn">Cerca</button>
-        </div>
-    </section>
-
-    <section class="main-content">
-        <div class="container">
-            <h3>Risultati:</h3>
-            <div class="result-wrapper flex">
-                <div class="result-display">
-                    <h4>Risultati della ricerca:</h4>
-                        <span id="result-numbers">n/a</span>
-                </div>
-                <div class="main-content-list"></div>
+    <header class="main-header black color-wh">
+        <div class="container flex central">
+            <h1>
+                BOOLFIX
+            </h1>
+            
+            <div class="search-section">
+                <input id="search-input" type="text">
+                <button id="search-btn">Cerca</button>
             </div>
         </div>
-    </section>
+    </header>
+    
+
+    <main>
+        <div class="container flex central">
+            <ul class="main-content-list">
+                <li class="movie-card relative">
+                    <img class="card-img absolute" src="https://image.tmdb.org/t/p/w342/fVqKwpvobwWy0P1UImZWIDuw4RI.jpg" alt="immagine">
+                    
+                    <ul class="card-details absolute">
+                        <li>Titolo: Guerre stellari</li>
+                        <li>Titolo originale: Star Wars</li>
+                        <li class="lang">Lingua: <img src="img/en.svg" alt="flag"></li>
+                        <li class="vote">Voto: <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i></li>
+                        <li>Tipo: movie </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </main>
 
 
     <!-- TEMPLATE -->
     <script id="template-movie-card" type="text/x-handlebars-template">
-        <ul class="movie-card">
-            <li><img src="https://image.tmdb.org/t/p/w342{{ poster_link}}" alt="immagine"></li>
-            <li>Titolo: {{ title }}</li>
-            <li>Titolo originale: {{ title_or }}</li>
-            <li class="lang">Lingua: {{{ language }}}</li>
-            <li class="vote">Voto: {{{ vote }}}</li>
-            <li>Tipo: {{ product }} </li>
-        </ul>
+        <li class="movie-card relative">
+
+            <img class="card-img absolute" src="https://image.tmdb.org/t/p/w342{{ poster_link}}" alt="immagine">
+
+            <ul class="card-details">
+                <li>Titolo: {{ title }}</li>
+                <li>Titolo originale: {{ title_or }}</li>
+                <li class="lang">Lingua: {{{ language }}}</li>
+                <li class="vote">Voto: {{{ vote }}}</li>
+                <li>Tipo: {{ product }} </li>
+            </ul>
+
+        </li>
     </script>
 
     <!-- SCRIPTS -->
