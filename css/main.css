@@ -77,13 +77,13 @@ li {
 
 .main-content-list.failed::after {
     position: absolute;
-    content: 'Nessun film o serie TV trovata';
-    top: 100px;
-    left: 100px;
-    font-size: 200%;
-    padding: 50px;
     height: 300px;
     width: 500px;
+    top: 100px;
+    left: 100px;
+    padding: 50px;
+    content: 'Nessun film o serie TV trovata';
+    font-size: 200%;
 }
 
     .movie-card {
@@ -114,14 +114,15 @@ li {
 
             .movie-title-box:not(.active),
             .card-details {
-                visibility: hidden;
+                opacity: 0;
                 background-color: rgba(0, 0, 0, 0.8);
+                transition: opacity 1.5s;
             }
 
             
             .movie-card:hover .movie-title-box,
             .movie-card:hover .card-details {
-                visibility: visible;
+                opacity: 1;
             }
 
             .movie-title-box {
