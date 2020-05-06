@@ -52,17 +52,30 @@ li {
 
 
 /* MAIN-CONCENT-LIST */
-.movie-card {
-    margin: 30px 0; 
-}
 
-    .movie-card .lang > img{
-        width: 20px;
+
+    .card-details-wrapper {
+        visibility: hidden;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        background-color: goldenrod;
     }
 
-    .movie-card .vote .fas.fa-star {
-        color: gold;
+    .movie-card:hover .card-details-wrapper {
+        visibility: visible;
     }
+
+            .card-details .lang > img{
+                width: 20px;
+            }
+
+            .card-details .vote .fas.fa-star {
+                color: gold;
+            }
 
 /* DEBUG */
 .test-area {
