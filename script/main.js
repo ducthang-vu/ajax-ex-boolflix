@@ -42,6 +42,7 @@ function printCards(template, product, array_of_objects) {
 
 
 function ending_search() {
+    console.log('fired')
     if (!$('.main-content-list').html()) {
         $('.main-content-list').addClass('failed');     //failed search notified to user
         $('#search-input').focus();
@@ -55,7 +56,7 @@ function gettingMovies(query, template) {
         movie: 'Film',
         tv: 'Serie TV'
     };
-    var call_counter = 0;
+    var call_counter = Object.keys(links_labels).length;
 
     for (const link in links_labels) {
         $.ajax({
@@ -68,7 +69,7 @@ function gettingMovies(query, template) {
         },
         success: (response) => {
             printCards(template, links_labels[link], response.results);
-            if (++call_counter === link.length) ending_search();
+            if (!--call_counter) ending_search();
             },
         error: () => console.log('API error')
         });
