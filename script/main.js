@@ -43,7 +43,8 @@ function printCards(template, product, array_of_objects) {
 
 function ending_search() {
     if (!$('.main-content-list').html()) {
-        $('.main-content-list').addClass('failed');     //failed search notified to user
+        console.log('failed')
+        $('.failed-message').slideDown();     //failed search notified to user
         $('#search-input').focus();
     } 
     $('#search-input').val('');
@@ -77,7 +78,8 @@ function gettingMovies(query, template) {
 
 
 function startSearching(userInput, template) {
-    $('.main-content-list').empty().removeClass('failed');  // reset main-content-list element
+    $('.main-content-list').empty();    //reset list
+    $('.failed-message').hide();    // hide error message
     userInput.trim() ? gettingMovies(userInput, template) : ending_search();
 }
 

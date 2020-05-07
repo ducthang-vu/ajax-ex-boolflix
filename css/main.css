@@ -79,20 +79,16 @@ main {
     flex-grow: 1;
 }
 
+.failed-message {
+    display: none;
+    font-size: 200%;
+    font-weight: 800;
+    padding: 30px 50px;
+}
+
 .main-content-list {
     flex-wrap: wrap;
     justify-content: space-around;
-}
-
-.main-content-list.failed::after {
-    position: absolute;
-    height: 300px;
-    width: 500px;
-    top: 100px;
-    left: 100px;
-    padding: 50px;
-    content: 'Nessun film o serie TV trovata';
-    font-size: 200%;
 }
 
     .card {
