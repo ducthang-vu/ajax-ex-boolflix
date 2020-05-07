@@ -50,7 +50,15 @@
                 <ul class="card-details">
                     <li>Titolo originale: "{{ title_or }}"</li>
                     <li class="lang">Lingua:&nbsp; {{{ language }}}</li>
-                    <li class="vote">Voto:&nbsp; {{{ vote }}}</li>
+                    <li class="vote">Voto:&nbsp;
+                        {{#each vote }}
+                            {{#if this}}
+                                <i class="fas fa-star"></i>
+                                {{else}}
+                                <i class="far fa-star"></i>
+                            {{/if}}
+                        {{/each}}
+                    </li>
                     <li>Tipo: {{ product }} </li>
                     <li>Trama: {{ overview }}</li>
                 </ul>

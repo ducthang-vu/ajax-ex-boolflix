@@ -1,9 +1,6 @@
 /* FUNCTIONS */
-function get_html_stars(raw_score) {
-    var score = Math.ceil(raw_score / 2);
-    var fullStar = '<i class="fas fa-star"></i>';
-    var emptyStar = '<i class="far fa-star"></i>';
-    return fullStar.repeat(score) + emptyStar.repeat(5-score);
+function get_starsArray_score (raw_score) {
+    return [1, 2, 3, 4, 5].map(x  => x <= Math.ceil(raw_score / 2))
 }
 
 
@@ -30,7 +27,7 @@ function printCards(template, product, array_of_objects) {
             title: object.title || object.name,
             title_or: object.original_title || object.original_name,
             language: get_html_lang(object.original_language),
-            vote: get_html_stars(object.vote_average),
+            vote:  get_starsArray_score(object.vote_average),
             product: product,
             overview: format_overview(object.overview),
             active: object.poster_path ? null : ' active '
