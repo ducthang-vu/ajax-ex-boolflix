@@ -43,7 +43,6 @@ function printCards(template, product, array_of_objects) {
 
 function ending_search() {
     if (!$('.main-content-list').html()) {
-        console.log('failed')
         $('.failed-message').slideDown();     //failed search notified to user
         $('#search-input').focus();
     } 
