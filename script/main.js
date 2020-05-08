@@ -1,5 +1,5 @@
 /* FUNCTIONS */
-function get_starsArray_score (raw_score) {
+function get_starsArray_score(raw_score) {
     return [1, 2, 3, 4, 5].map(x => x <= Math.ceil(raw_score / 2))
 }
 
